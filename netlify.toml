@@ -1,6 +1,6 @@
 [build]
     command = "npm run build"
-    publish = ".svelte-kit/build/"
+    publish = "build/"
     
 [build.environment]
   NPM_FLAGS = "--version" # this prevents npm install from happening
