@@ -1,4 +1,5 @@
-import adapter from '@sveltejs/adapter-auto';
+// import adapter from '@sveltejs/adapter-auto';
+import netlifyAdapter from '@sveltejs/adapter-netlify';
 import preprocess from 'svelte-preprocess';
 import { resolve } from 'path';
 
@@ -14,7 +15,7 @@ const config = {
 		})
 	],
 	kit: {
-		adapter: adapter(),
+		adapter: netlifyAdapter(),
 		floc: false,
 		methodOverride: {
 			allowed: ['PATCH', 'DELETE'],
