@@ -16,6 +16,9 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		floc: false,
+		methodOverride: {
+			allowed: ['PATCH', 'DELETE'],
+		},
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
 		vite: {
