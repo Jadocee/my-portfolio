@@ -1,0 +1,115 @@
+.education {
+	width: 100%;
+
+	.flex-container {
+		display: flex;
+	}
+
+	.main-content {
+		overflow: hidden;
+		width: 100%;
+		max-width: 100rem;
+		margin-left: auto;
+		margin-right: auto;
+		transition: transform 500ms ease-in-out;
+		&:hover {
+			transform: perspective(500px);
+		}
+		@media (min-width: 1024px) {
+			display: grid;
+			grid-template-columns: auto 1fr;
+		}
+
+		.img-cls {
+			background: black;
+			display: inline-flex;
+			width: 100%;
+			align-items: center;
+			justify-content: center;
+			@media (min-width: 1024px) {
+				flex-shrink: 0;
+				width: auto;
+			}
+
+			img {
+				width: auto;
+				height: 8rem;
+				object-fit: fill;
+				@media (min-width: 1024px) {
+					height: 100%;
+					width: 12rem;
+				}
+			}
+		}
+
+		.desc-cls {
+			padding: 0 1rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			align-self: center;
+			align-items: center;
+			@media (min-width: 768px) {
+				align-items: baseline;
+				justify-content: center;
+				height: 100%;
+			}
+
+			.education-heading {
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.025em;
+				font-size: 1.25rem;
+				margin: 0;
+				line-height: normal;
+				@media (min-width: 768px) {
+					font-size: 1.5rem;
+				}
+			}
+
+			.education-type {
+				font-size: 1.75rem;
+				text-align: center;
+				font-weight: 500;
+				@media (min-width: 768px) {
+					font-size: 2rem;
+				}
+			}
+
+			.education-time {
+				text-align: center;
+				font-size: 1rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				align-items: center;
+				justify-items: baseline;
+				gap: 0.5em;
+				display: grid;
+				grid-template-columns: repeat(3, auto);
+
+
+				// * {
+				// 	display: flex;
+				// 	align-items: center;
+				// 	justify-content: center;
+				// 	margin: 0;
+				// 	padding: 0;
+				// }
+
+				svg {
+					width: 2rem;
+					height: 2rem;
+					fill: #fff;
+					object-fit: contain;
+				}
+			}
+		}
+	}
+}
+
+// .education-button-cls {
+// 	width: 100%;
+// 	max-width: 100rem;
+// 	margin-left: auto;
+// 	margin-right: auto;
+// }

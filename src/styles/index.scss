@@ -1,0 +1,44 @@
+.skills-list {
+	list-style: none;
+	display: inline-flex;
+	margin: auto;
+}
+
+.icon {
+	object-fit: contain;
+	transition: all;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 300ms;
+	transition-delay: 100ms;
+	padding: 0.5em;
+
+	img,
+	svg {
+		height: 3rem;
+		width: 3rem;
+	}
+}
+
+.skills-nav {
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		// margin-left: 0.5rem;
+		li {
+			cursor: pointer;
+			display: inline;
+			text-transform: uppercase;
+			letter-spacing: 0.025em;
+			background-color: #252525;
+			// border-radius: 0.5rem;
+			padding: 0.025rem 1rem;
+			font-size: 1.25rem;
+			font-weight: 400;
+			&:hover {
+				background-color: blue;
+				// text-decoration: underline skyblue 4px;
+			}
+		}
+	}
+}

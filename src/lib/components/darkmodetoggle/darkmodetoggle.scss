@@ -1,0 +1,15 @@
+.button-icon {
+    fill: #2d2d3b;
+    height: fit-content;
+    width: fit-content;
+    @media (prefers-color-scheme: dark) {
+        fill: #fff;
+    }
+    & .moon:hover {
+        fill: #4f46e5
+    }
+    &.sun:hover {
+        fill: #f59e0b;
+    }
+}
+
