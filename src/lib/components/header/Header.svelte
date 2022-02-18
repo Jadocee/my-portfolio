@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { page, url } from '$app/stores';
-	import { onDestroy, onMount } from 'svelte';
 	import './Header.scss';
+	import { onDestroy, onMount } from 'svelte';
 	import logo from './svelte-logo.svg';
 	import { isMobile } from '../../../Stores';
 	import { fade, fly } from 'svelte/transition';

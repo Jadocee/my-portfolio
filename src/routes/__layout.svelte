@@ -1,3 +1,7 @@
+<script lang="ts" context="module">
+	import 'modern-normalize/modern-normalize.css';
+</script>
+
 <script lang="ts">
 	import '../app.scss';
 	import Header from '$components/header/Header.svelte';
@@ -16,6 +20,10 @@
 		
 	// });
 </script>
+
+<!-- <svelte:head>
+	<link rel="stylesheet" href="node_modules/modern-normalize/modern-normalize.css" />
+</svelte:head> -->
 
 <div class="backdrop">
 	<Header />

@@ -16,10 +16,16 @@ const config = {
 	],
 	kit: {
 		adapter: netlifyAdapter(),
+		prerender: {
+			enabled: true,
+			
+			onError: 'continue',
+		},
 		floc: false,
 		methodOverride: {
 			allowed: ['PATCH', 'DELETE'],
 		},
+		target: '#svelte',
 		// hydrate the <div id="svelte"> element in src/app.html
 		// target: '#svelte',
 		vite: {

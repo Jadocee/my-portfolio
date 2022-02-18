@@ -1,7 +1,7 @@
 <script lang="ts">
 	import UONLogo from './uon-logo-square.svg';
 	import './Education.scss';
-	import { fly, fade, draw } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 
 	export let name: string;
 	export let study: string;
