@@ -19,7 +19,7 @@ const config = {
 		prerender: {
 			enabled: true,
 			
-			onError: 'continue',
+			onError: 'fail',
 		},
 		floc: false,
 		methodOverride: {
