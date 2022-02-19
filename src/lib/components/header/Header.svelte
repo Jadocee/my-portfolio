@@ -33,6 +33,11 @@
 		});
 	});
 
+	function changeMenuState(newState: boolean): void {
+		showMenu = newState;
+		showMenuButton = !newState;
+	}
+
 	onDestroy(isMobileUnsub);
 </script>
 
@@ -55,10 +60,7 @@
 								<button
 									type="button"
 									aria-label="Close Menu"
-									on:click={(event) => {
-										showMenu = false;
-										showMenuButton = true;
-									}}
+									on:click={() => changeMenuState(false)}
 								>
 									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 										<path d="M0 0h24v24H0V0z" fill="none" />
@@ -71,9 +73,20 @@
 						</aside>
 					{/if}
 					<menu class="nav__menu">
-						<li><a sveltekit:prefetch href="#about me">About Me</a></li>
-						<li><a sveltekit:prefetch href="#education">Education</a></li>
-						<li><a sveltekit:prefetch href="#skills">Skills</a></li>
+						<li>
+							<a on:click={() => changeMenuState(false)} sveltekit:prefetch href="#about me"
+								>About Me</a
+							>
+						</li>
+						<li>
+							<a on:click={() => changeMenuState(false)} sveltekit:prefetch href="#education"
+								>Education</a
+							>
+						</li>
+						<li>
+							<a on:click={() => changeMenuState(false)} sveltekit:prefetch href="#skills">Skills</a
+							>
+						</li>
 					</menu>
 				</nav>
 			{/if}
@@ -84,11 +97,8 @@
 				<button
 					type="button"
 					aria-label="Menu"
-					on:click={(event) => {
-						showMenu = true;
-						showMenuButton = false;
-					}}
-					transition:fade={{ delay: 0, duration: 600 }}
+					on:click={() => changeMenuState(true)}
+					transition:fade={{ delay: 0, duration: 400 }}
 					disabled={showMenu}
 				>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -101,13 +111,4 @@
 			</div>
 		{/if}
 	</header>
-
-	<!-- <aside class="mobile-menu glass">
-			<menu class="menu">
-				<li><a href="/#aboutme">About Me</a></li>
-				<li><a href="/#education">Education</a></li>
-				<li><a href="/#skills">Skills</a></li>
-			</menu>
-		</aside> -->
-	<!-- </header> -->
 {/if}
