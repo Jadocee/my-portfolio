@@ -1,0 +1,78 @@
+{
+  ".svelte-kit/runtime/client/start.js": {
+    "file": "start-3283073d.js",
+    "src": ".svelte-kit/runtime/client/start.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-145fb38c.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      ".svelte-kit/runtime/components/error.svelte",
+      "src/routes/index.svelte"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "pages/__layout.svelte-0a06d454.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-145fb38c.js",
+      "_Stores-0dead30f.js"
+    ],
+    "css": [
+      "assets/pages/__layout.svelte-caf5af1e.css"
+    ],
+    "assets": [
+      "assets/svelte-logo-87df40b8.svg",
+      "assets/svelte-kit-b86cab9d.svg"
+    ]
+  },
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "error.svelte-4b5ed203.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-145fb38c.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "pages/index.svelte-ea897688.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-145fb38c.js",
+      "_Stores-0dead30f.js"
+    ],
+    "css": [
+      "assets/pages/index.svelte-79deec46.css"
+    ],
+    "assets": [
+      "assets/uon-logo-square-bf66487e.svg",
+      "assets/csharp-1ce8d6e9.svg",
+      "assets/CSS3-6d0ce725.svg",
+      "assets/HTML5-c62bf88b.svg",
+      "assets/java-a7fd0182.svg",
+      "assets/python-fbc3b698.svg",
+      "assets/sass-0e8e39c3.svg",
+      "assets/svelte-logo-87df40b8.svg",
+      "assets/tailwind-7c29d970.svg",
+      "assets/typescript-b487cbba.svg",
+      "assets/vanillaextract-e7f92c4c.svg",
+      "assets/javascript-9a935d73.svg",
+      "assets/cpp-7a16311b.svg"
+    ]
+  },
+  "_vendor-145fb38c.js": {
+    "file": "chunks/vendor-145fb38c.js"
+  },
+  "_Stores-0dead30f.js": {
+    "file": "chunks/Stores-0dead30f.js",
+    "imports": [
+      "_vendor-145fb38c.js"
+    ]
+  }
+}
