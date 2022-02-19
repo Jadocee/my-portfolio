@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-	import 'modern-normalize/modern-normalize.css';
+	// import 'modern-normalize/modern-normalize.css';
 </script>
 
 <script lang="ts">

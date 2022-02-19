@@ -44,7 +44,7 @@
 {#if showNav}
 	<header
 		class="top-nav-cls glass"
-		transition:fly={{ delay: 0, y: -100, duration: 600, easing: sineInOut }}
+		transition:fly={{ delay: 0, y: -100, duration: 400, easing: sineInOut }}
 	>
 		<div class="left">
 			<img src={logo} class="header-icon" alt="Logo" />
