@@ -92,7 +92,6 @@
 	top: 1rem;
 	right: 0.5rem;
 	left: 0.5rem;
-	background: hsl(0 0% 100% / 0.9);
 	border-radius: 1.5rem;
 	font-size: 1.2rem;
 	.nav__menu {
@@ -144,11 +143,12 @@
 			}
 		}
 	}
-
-	.dark & {
-		background: hsl(225 7% 11% / 0.9);
+	&.glass {
+		background: hsl(0 0% 100% / 0.9);
+		.dark & {
+			background: hsl(225 7% 11% / 0.9);
+		}
 	}
-	
 }
 
 .mobile-menu {
