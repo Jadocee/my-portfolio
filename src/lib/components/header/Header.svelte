@@ -2,9 +2,11 @@
 	import './Header.scss';
 	import { onDestroy, onMount } from 'svelte';
 	import logo from './svelte-logo.svg';
-	import { isMobile } from '../../../Stores';
-	import { fade, fly } from 'svelte/transition';
-	import { sineInOut } from 'svelte/easing';
+	import { isMobile } from '$lib/shared/Stores';
+	import { fly, FlyParams } from 'svelte/transition';
+	import { sineIn } from 'svelte/easing';
+	import Toggletheme from '../toggletheme/toggletheme.svelte';
+	import ChevronRight from '../icons/ChevronRight.svelte';
 
 	let mobile: boolean;
 	let showMenu = false;
@@ -19,6 +21,12 @@
 		mobile = value;
 		showMenuButton = mobile;
 	});
+
+	const conditionalFly = (node: Element, args: FlyParams) => {
+		if (mobile) {
+			return fly(node, args);
+		}
+	};
 
 	onMount(async () => {
 		window.addEventListener('scroll', (event) => {
@@ -44,7 +52,7 @@
 {#if showNav}
 	<header
 		class="top-nav-cls glass"
-		transition:fly={{ delay: 0, y: -100, duration: 400, easing: sineInOut }}
+		transition:fly={{ delay: 0, y: -100, duration: 400, easing: sineIn }}
 	>
 		<div class="left">
 			<img src={logo} class="header-icon" alt="Logo" />
@@ -52,7 +60,7 @@
 
 		<div class="middle">
 			{#if !mobile || showMenu}
-				<nav class="nav" class:glass transition:fly={{ x: 100, duration: 400 }}>
+				<nav class="nav" class:glass transition:conditionalFly={{ x: 100, duration: 400 }}>
 					{#if mobile}
 						<aside class="menu-top-nav">
 							<img src={logo} class="header-icon" alt="Logo" />
@@ -89,26 +97,24 @@
 						</li>
 					</menu>
 				</nav>
+				<!-- <Toggletheme/> -->
 			{/if}
 		</div>
 
-		{#if showMenuButton}
-			<div class="right">
+		<div class="right">
+			{#if mobile}
 				<button
 					type="button"
 					aria-label="Menu"
 					on:click={() => changeMenuState(true)}
-					transition:fade={{ delay: 0, duration: 400 }}
+					class:hidden={showMenu}
 					disabled={showMenu}
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-						<path d="M0 0h24v24H0V0z" fill="none" />
-						<path
-							d="M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1z"
-						/>
-					</svg>
+					<ChevronRight />
 				</button>
-			</div>
-		{/if}
+			{:else}
+				<Toggletheme />
+			{/if}
+		</div>
 	</header>
 {/if}

@@ -11,4 +11,6 @@ export const isMobile = writable(false)
 
 export const viewport = writable<Record<string, boolean>>({});
 
+export const theme = writable(false);
+
 

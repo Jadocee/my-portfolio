@@ -2,7 +2,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { inview, Options } from 'svelte-inview';
-	import { viewport } from '../../../Stores';
+	import { viewport } from '$lib/shared/Stores';
 
 	export let section: string;
 	export let options: Options = {
@@ -43,7 +43,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding-top: 4rem;
+		// padding-top: 4rem;
 		@media (min-width: 768px) {
 			padding-left: 2rem;
 			padding-right: 2rem;
@@ -71,11 +71,11 @@
 		text-align: left;
 		font-size: 2rem;
 		line-height: 1.25rem;
-		font-weight: 300;
+		font-weight: 400;
 		margin-bottom: 2rem;
 		margin-top: 2rem;
 		@media (min-width: 768px) {
-			font-size: 2.75rem;
+			font-size: 2.5rem;
 			line-height: 2.25rem;
 		}
 	}

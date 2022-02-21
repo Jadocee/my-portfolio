@@ -3,6 +3,16 @@
 html {
 	scroll-behavior: smooth;
 	font-display: optional;
+	background-image: linear-gradient(to right, hsl(48, 97%, 77%), hsl(0, 96%, 89%));
+	color: #000;
+	&.dark {
+		background-image: linear-gradient(to right, hsl(202, 80%, 24%), hsl(242, 47%, 34%));
+		color: #fff;
+	}
+	// @media (prefers-color-scheme: dark) {
+	// 	background-image: linear-gradient(to right, hsl(202, 80%, 24%), hsl(242, 47%, 34%));
+	// 	color: #fff;
+	// }
 }
 
 main {
@@ -11,27 +21,19 @@ main {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding-right: 2rem;
-	padding-left: 2rem;
-	max-width: 1536px;
+	padding: 0 2rem;
+	max-width: 100rem;
+
+	.dark & {
+		padding: 0 2rem;
+	}
 
 	@media (min-width: 1280px) {
 		padding: auto 25%;
 	}
-
-	color: #000;
-
-	@media (prefers-color-scheme: dark) {
-		color: #fff;
-	}
 }
 
 .backdrop {
-	background-image: linear-gradient(to right, hsl(48, 97%, 77%), hsl(0, 96%, 89%));
-	@media (prefers-color-scheme: dark) {
-		background-image: linear-gradient(to right, hsl(202, 80%, 24%), hsl(242, 47%, 34%));
-		color: #fff;
-	}
 	align-items: center;
 	display: flex;
 	flex-direction: column;
@@ -44,20 +46,37 @@ button,
 	cursor: pointer;
 	padding: 0;
 	overflow: hidden;
+	color: inherit;
 }
 
 .glass {
-	--glass-color-support: hsl(225 7% 11% / 0.9);
-	--glass-color: hsl(225 7% 11% / 0.3);
 	border-radius: 1.5rem;
-	@media (prefers-color-scheme: dark) {
-		color: white;
-		background: var(--glass-color-support);
+	background: hsl(0 0% 100% / 0.9);
+	@supports (backdrop-filter: none) {
+		background: hsl(0 0% 100% / 0.3);
+		backdrop-filter: blur(8px);
+	}
+
+	.dark & {
+		// background: hsl(0 0% 100% / 0.9);
+		// @supports (backdrop-filter: none) {
+		// 	background: hsl(0 0% 100% / 0.3);
+		// 	backdrop-filter: blur(8px);
+		// }
+		background: hsl(225 7% 11% / 0.9);
 		@supports (backdrop-filter: none) {
-			background: var(--glass-color);
+			background: hsl(225 7% 11% / 0.3);
 			backdrop-filter: blur(8px);
 		}
 	}
+	// @media (prefers-color-scheme: dark) {
+	// 	color: white;
+	// 	background: var(--glass-color-support);
+	// 	@supports (backdrop-filter: none) {
+	// 		background: var(--glass-color);
+	// 		backdrop-filter: blur(8px);
+	// 	}
+	// }
 }
 
 a {

@@ -2,8 +2,9 @@
 	import './SkillCard.scss';
 	import { inview } from 'svelte-inview';
 	import { fade } from 'svelte/transition';
-	import { onDestroy, onMount } from 'svelte';
-	import { skillCardStates } from '../../../Stores';
+	import { onDestroy, onMount, SvelteComponent } from 'svelte';
+	import { skillCardStates } from '$lib/shared/Stores';
+	import ExpandArrow from '../icons/ExpandArrow.svelte';
 
 	export let icon: string;
 	export let title: string;
@@ -11,8 +12,7 @@
 
 	let inView: boolean;
 	let expanded = false;
-	let parent: HTMLElement;
-	let expandIcon: SVGElement;
+	let expandIcon: SvelteComponent;
 	let mounted = false;
 
 	onMount(async () => {
@@ -22,24 +22,23 @@
 	const _unsubscribe = skillCardStates.subscribe(async (value) => {
 		if (!mounted) return;
 		expanded = value.expanded == title;
-		// expandIcon.getAnimations().forEach(async animation => await animation.finished);
 		if (expanded) {
-			let animation = expandIcon.animate([{ transform: 'rotate(180deg)' }], {
+			let animation = document.getElementById(`${title}-expand-icon`).animate([{ transform: 'rotate(180deg)' }], {
 				duration: 600,
 				iterations: 1
 			});
-			parent.classList.add('expanded');
+			document.getElementById(`skill-${title}`).classList.add('expanded');
 			await animation.finished;
-			expandIcon.setAttribute('transform', 'rotate(180)');
+			document.getElementById(`${title}-expand-icon`).setAttribute('transform', 'rotate(180)');
 		} else {
-			if (parent.classList.contains('expanded')) {
-				let animation = expandIcon.animate([{ transform: 'rotate(360deg)' }], {
+			if (document.getElementById(`skill-${title}`).classList.contains('expanded')) {
+				let animation = document.getElementById(`${title}-expand-icon`).animate([{ transform: 'rotate(360deg)' }], {
 					duration: 600,
 					iterations: 1
 				});
-				parent.classList.remove('expanded');
+				document.getElementById(`skill-${title}`).classList.remove('expanded');
 				await animation.finished;
-				expandIcon.removeAttribute('transform');
+				document.getElementById(`${title}-expand-icon`).removeAttribute('transform');
 			}
 		}
 	});
@@ -48,7 +47,6 @@
 </script>
 
 <div
-	bind:this={parent}
 	id="skill-{title}"
 	class="skill-card glass"
 	use:inview={{ unobserveOnEnter: true }}
@@ -80,12 +78,7 @@
 						}
 					}}
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" bind:this={expandIcon}>
-						<path d="M24 24H0V0h24v24z" fill="none" opacity=".87" />
-						<path
-							d="M15.88 9.29L12 13.17 8.12 9.29c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.39-1.42 0z"
-						/>
-					</svg>
+					<ExpandArrow id="{title}-expand-icon" />
 				</button>
 			</div>
 		</div>

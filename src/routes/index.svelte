@@ -4,28 +4,19 @@
 
 <script lang="ts">
 	import '$styles/index.scss';
-	import { navigating } from '$app/stores';
 	import Hero from '$components/hero/Hero.svelte';
-
-	import { inview } from 'svelte-inview';
 	import { onMount } from 'svelte';
 	import AboutMe from '$lib/components/aboutme/AboutMe.svelte';
 	import Education from '$lib/components/education/Education.svelte';
 	import Skills from '$lib/components/skills/Skills.svelte';
-	import { isMobile, viewport } from '../Stores';
+	import { isMobile, viewport } from '$lib/shared/Stores';
 	import PortfolioSection from '$lib/components/portfoliosection/PortfolioSection.svelte';
-
-	let mounted = false;
-	let innerHeight: number = null;
-	$: console.log(innerHeight);
 
 	async function handleViewportChange({ detail }) {
 		$viewport[detail.entry.target.id] = detail.inView;
-		console.log($viewport);
 	}
 
 	onMount(async () => {
-		mounted = true;
 		const mediaQuery = window.matchMedia('(max-width: 768px)');
 		isMobile.set(mediaQuery.matches);
 		mediaQuery.addEventListener('change', async (ev) => {
@@ -33,8 +24,6 @@
 		});
 	});
 </script>
-
-<svelte:window bind:innerHeight />
 
 <svelte:head>
 	<title>Portfolio</title>
@@ -45,7 +34,15 @@
 </PortfolioSection>
 
 <PortfolioSection section="about me" handler={handleViewportChange}>
-	<AboutMe />
+	<AboutMe>
+		I'm a student studying a Bachelor of Software Engineering at the University of Newcastle,
+		starting my second year in February, 2022. My goal is to pursue a career in software development
+		by pursuing new learning opportunities and forming relationships with the individuals I meet on
+		my journey. Developing cross-platform applications is at the top of my list of skills to learn.
+		However, I am open to take on other development opportunities or change my path as I explore
+		other options. I hope to soon gain leadership and development experience through a work
+		experience related program such as an internship
+	</AboutMe>
 </PortfolioSection>
 
 <PortfolioSection section="education" handler={handleViewportChange}>

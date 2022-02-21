@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
 	import SkillCard from '../skillcard/SkillCard.svelte';
 	import csharp from './csharp.svg';
 	import css from './CSS3.svg';
@@ -13,29 +12,11 @@
 	import vanillaExtract from './vanillaextract.svg';
 	import javascript from './javascript.svg';
 	import cpp from './cpp.svg';
-	import { skillCardStates } from '../../../Stores';
-	import { onDestroy, onMount } from 'svelte';
-
-	let skillsGrid: HTMLElement;
-	let mounted = false;
-
-	onMount(async () => {
-		mounted = true;
-	});
-
-	const _unsubscribe = skillCardStates.subscribe(async () => {
-		if (!mounted) return;
-		// $skillCardStates.expanded != null
-		// ? skillsGrid.style.setProperty('--grid-rows', '5')
-		// : skillsGrid.style.removeProperty('--grid-rows');
-	});
-
-	onDestroy(_unsubscribe);
 </script>
 
 <div class="container">
 	<div class="grid-container">
-		<div class="skills-grid" bind:this={skillsGrid}>
+		<div class="skills-grid">
 			<SkillCard icon={svelte} title="Svelte" link="https://svelte.dev/">
 				<div slot="desc">
 					I am have only been using Svelte for a few months now but I have a good understanding of

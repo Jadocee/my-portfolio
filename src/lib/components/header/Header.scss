@@ -13,7 +13,11 @@
 	grid-template-columns: auto 1fr auto;
 	gap: 4rem;
 	align-items: center;
-	--glass-color: hsl(225 7% 11% / 0.9);
+	overflow: visible;
+	background: hsl(0 0% 100% / 0.9);
+	.dark & {
+		background: hsl(225 7% 11% / 0.9);
+	}
 }
 
 .left,
@@ -24,6 +28,9 @@
 
 .middle {
 	width: 100%;
+	display: grid;
+	align-items: center;
+	grid-template-columns: auto 2rem;
 
 	@media (min-width: 768px) {
 		// width: auto;
@@ -36,8 +43,10 @@
 		svg {
 			width: 2rem;
 			height: 2rem;
-			fill: #fff;
 		}
+	}
+	.hidden {
+		display: none;
 	}
 }
 
@@ -65,14 +74,13 @@
 		svg {
 			height: 2rem;
 			width: 2rem;
-			fill: #fff;
 		}
 	}
 }
 
 .nav {
 	height: fit-content;
-	padding: 1.5rem 1rem;
+	padding: 0.5rem 0.75rem;
 	position: absolute;
 	display: flex;
 	gap: 1rem;
@@ -94,7 +102,6 @@
 			width: 100%;
 			height: 4rem;
 			a {
-				color: #fff;
 				text-transform: uppercase;
 				letter-spacing: 0.025em;
 				font-weight: 600;
@@ -102,8 +109,9 @@
 				height: 100%;
 				display: flex;
 				align-items: center;
-				&:active {
-					// background: gray;
+				color: #000;
+				.dark & {
+					color: #fff;
 				}
 			}
 		}
