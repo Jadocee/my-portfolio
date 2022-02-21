@@ -31,10 +31,6 @@
 	display: grid;
 	align-items: center;
 	grid-template-columns: auto 2rem;
-
-	@media (min-width: 768px) {
-		// width: auto;
-	}
 }
 
 .right {
@@ -43,6 +39,10 @@
 		svg {
 			width: 2rem;
 			height: 2rem;
+			fill: #000;
+			.dark & {
+				fill: #fff;
+			}
 		}
 	}
 	.hidden {
@@ -74,6 +74,10 @@
 		svg {
 			height: 2rem;
 			width: 2rem;
+			fill: #000;
+			.dark & {
+				fill: #fff;
+			}
 		}
 	}
 }
@@ -88,7 +92,7 @@
 	top: 1rem;
 	right: 0.5rem;
 	left: 0.5rem;
-	--glass-color: hsl(225 7% 11% / 0.9);
+	background: hsl(0 0% 100% / 0.9);
 	border-radius: 1.5rem;
 	font-size: 1.2rem;
 	.nav__menu {
@@ -140,6 +144,11 @@
 			}
 		}
 	}
+
+	.dark & {
+		background: hsl(225 7% 11% / 0.9);
+	}
+	
 }
 
 .mobile-menu {
